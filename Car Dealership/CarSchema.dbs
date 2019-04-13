@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Car Dealer" id="Project_152cfbd" template="Default" database="SqlServer" >
+	<schema name="Car Dealer" schemaname="Car Dealer" >
+		<table name="BodyStyle" >
+			<column name="BodyStyleID" type="int" jt="4" />
+			<column name="StyleTypeID" type="varchar" length="100" jt="12" />
+			<column name="VinID" type="int" jt="4" />
+			<index name="Unq_BodyStyle_StyleID" unique="UNIQUE" >
+				<column name="BodyStyleID" />
+			</index>
+			<index name="Idx_BodyStyle_StyleTypeID" unique="NORMAL" >
+				<column name="StyleTypeID" />
+			</index>
+			<fk name="fk_bodystyle_bodytype" to_schema="Car Dealer" to_table="BodyType" >
+				<fk_column name="StyleTypeID" pk="StyleTypeID" />
+			</fk>
+		</table>
+		<table name="BodyType" >
+			<column name="StyleTypeID" type="int" jt="4" />
+			<column name="Style" type="int" jt="4" />
+			<index name="Unq_BodyType_StyleTypeID" unique="UNIQUE" >
+				<column name="StyleTypeID" />
+			</index>
+		</table>
+		<table name="CarMake" >
+			<column name="MakeID" type="int" jt="4" />
+			<column name="Name" type="varchar" length="100" jt="12" />
+			<column name="ModelID" type="int" jt="4" />
+			<index name="Idx_CarMake_ModelID" unique="NORMAL" >
+				<column name="ModelID" />
+			</index>
+			<index name="Unq_CarMake_MakeID" unique="UNIQUE" >
+				<column name="MakeID" />
+			</index>
+			<fk name="fk_carmake_carmodel" to_schema="Car Dealer" to_table="CarModel" >
+				<fk_column name="ModelID" pk="ModelID" />
+			</fk>
+		</table>
+		<table name="CarModel" >
+			<column name="ModelID" type="int" jt="4" />
+			<column name="Name" type="varchar" length="100" jt="12" />
+			<column name="TypeId" type="int" jt="4" />
+			<column name="ModelTypeID" type="int" jt="4" />
+			<column name="TransmissionID" type="int" jt="4" />
+			<column name="BodyStyleTypeID" type="int" jt="4" />
+			<column name="InteriorID" type="int" jt="4" />
+			<column name="MSRPID" type="int" jt="4" />
+			<column name="DescriptionID" type="int" jt="4" />
+			<column name="YearID" type="int" jt="4" />
+			<index name="Idx_CarModel_ModelTypeID" unique="NORMAL" >
+				<column name="ModelTypeID" />
+			</index>
+			<index name="Unq_CarModel_ModelID" unique="UNIQUE" >
+				<column name="ModelID" />
+			</index>
+			<index name="Idx_CarModel_TypeId" unique="NORMAL" >
+				<column name="TypeId" />
+			</index>
+			<index name="Idx_CarModel_TransmissionID" unique="NORMAL" >
+				<column name="TransmissionID" />
+			</index>
+			<index name="Idx_CarModel_BodyStyleTypeID" unique="NORMAL" >
+				<column name="BodyStyleTypeID" />
+			</index>
+			<index name="Idx_CarModel_InteriorID" unique="NORMAL" >
+				<column name="InteriorID" />
+			</index>
+			<index name="Idx_CarModel_MSRPID" unique="NORMAL" >
+				<column name="MSRPID" />
+			</index>
+			<index name="Idx_CarModel_DescriptionID" unique="NORMAL" >
+				<column name="DescriptionID" />
+			</index>
+			<index name="Idx_CarModel_YearID" unique="NORMAL" >
+				<column name="YearID" />
+			</index>
+			<fk name="fk_carmodel_modeltype" to_schema="Car Dealer" to_table="ModelType" >
+				<fk_column name="ModelTypeID" pk="ModelTypeID" />
+			</fk>
+			<fk name="fk_carmodel_type" to_schema="Car Dealer" to_table="Type" >
+				<fk_column name="TypeId" pk="TypeID" />
+			</fk>
+			<fk name="fk_carmodel_transmission" to_schema="Car Dealer" to_table="Transmission" >
+				<fk_column name="TransmissionID" pk="TransmissionID" />
+			</fk>
+			<fk name="fk_carmodel_bodystyle" to_schema="Car Dealer" to_table="BodyStyle" >
+				<fk_column name="BodyStyleTypeID" pk="BodyStyleID" />
+			</fk>
+			<fk name="fk_carmodel_interior" to_schema="Car Dealer" to_table="Interior" >
+				<fk_column name="InteriorID" pk="InteriorID" />
+			</fk>
+			<fk name="fk_carmodel_msrp" to_schema="Car Dealer" to_table="MSRP" >
+				<fk_column name="MSRPID" pk="MSRPID" />
+			</fk>
+			<fk name="fk_carmodel_description" to_schema="Car Dealer" to_table="Description" >
+				<fk_column name="DescriptionID" pk="DescriptionID" />
+			</fk>
+			<fk name="fk_carmodel_year" to_schema="Car Dealer" to_table="Year" >
+				<fk_column name="YearID" pk="YearID" />
+			</fk>
+		</table>
+		<table name="Color" >
+			<column name="ColorID" type="int" jt="4" />
+			<column name="ColorTypeID" type="int" jt="4" />
+			<index name="Unq_Color_ColorID" unique="UNIQUE" >
+				<column name="ColorID" />
+			</index>
+			<index name="Idx_Color_ColorTypeID" unique="NORMAL" >
+				<column name="ColorTypeID" />
+			</index>
+			<fk name="fk_color_colortypes" to_schema="Car Dealer" to_table="ColorTypes" >
+				<fk_column name="ColorTypeID" pk="ColorTypeID" />
+			</fk>
+		</table>
+		<table name="ColorTypes" >
+			<column name="ColorTypeID" type="int" jt="4" />
+			<index name="Unq_ColorTypes_ColorTypeID" unique="UNIQUE" >
+				<column name="ColorTypeID" />
+			</index>
+		</table>
+		<table name="Description" >
+			<column name="DescriptionID" type="int" length="300" jt="4" />
+			<column name="Description" type="varchar" length="300" jt="12" />
+			<index name="Unq_Description_DescriptionID" unique="UNIQUE" >
+				<column name="DescriptionID" />
+			</index>
+		</table>
+		<table name="Interior" >
+			<column name="InteriorID" type="int" jt="4" />
+			<column name="InteriorDetails" type="varchar" length="300" jt="12" />
+			<index name="Unq_Interior_InteriorID" unique="UNIQUE" >
+				<column name="InteriorID" />
+			</index>
+		</table>
+		<table name="MSRP" >
+			<column name="MSRPID" type="decimal" jt="3" />
+			<column name="MSRPPrice" type="decimal" jt="3" />
+			<index name="Unq_MSRP_MSRPID" unique="UNIQUE" >
+				<column name="MSRPID" />
+			</index>
+		</table>
+		<table name="Mileage" >
+			<column name="MileageID" type="decimal" jt="3" />
+			<column name="Mileage" type="decimal" jt="3" />
+			<index name="Unq_Mileage_MileageID" unique="UNIQUE" >
+				<column name="MileageID" />
+			</index>
+		</table>
+		<table name="ModelType" >
+			<column name="ModelTypeID" type="int" jt="4" />
+			<column name="ModelStyle" type="varchar" length="20" jt="12" />
+			<column name="PictureID" type="int" jt="4" />
+			<index name="Unq_ModelType_ModelTypeID" unique="UNIQUE" >
+				<column name="ModelTypeID" />
+			</index>
+			<index name="Idx_ModelType_PictureID" unique="NORMAL" >
+				<column name="PictureID" />
+			</index>
+			<fk name="fk_modeltype_picture" to_schema="Car Dealer" to_table="Picture" >
+				<fk_column name="PictureID" pk="PictureID" />
+			</fk>
+		</table>
+		<table name="Picture" >
+			<column name="PictureID" type="int" jt="4" />
+			<column name="Picture" type="image" jt="-4" />
+			<index name="Unq_Picture_PictureID" unique="UNIQUE" >
+				<column name="PictureID" />
+			</index>
+		</table>
+		<table name="SalePrice" >
+			<column name="SalePriceID" type="int" jt="4" />
+			<column name="SalePrice" type="decimal" jt="3" />
+			<column name="DisplaypriceID" type="int" jt="4" />
+			<index name="Idx_SalePrice_DisplaypriceID" unique="NORMAL" >
+				<column name="DisplaypriceID" />
+			</index>
+			<fk name="fk_saleprice_selectedcar" to_schema="Car Dealer" to_table="SelectedCar" >
+				<fk_column name="DisplaypriceID" pk="DisplayPriceID" />
+			</fk>
+		</table>
+		<table name="SelectedCar" >
+			<column name="CarID" type="int" jt="4" />
+			<column name="MakeID" type="int" jt="4" />
+			<column name="VinID" type="int" jt="4" />
+			<column name="ColorID" type="int" jt="4" />
+			<column name="DisplayPriceID" type="int" jt="4" />
+			<index name="Idx_SelectedCar_MakeID" unique="NORMAL" >
+				<column name="MakeID" />
+			</index>
+			<index name="Idx_SelectedCar_VinID" unique="NORMAL" >
+				<column name="VinID" />
+			</index>
+			<index name="Idx_SelectedCar_ColorID" unique="NORMAL" >
+				<column name="ColorID" />
+			</index>
+			<index name="Unq_SelectedCar_DisplayPriceID" unique="UNIQUE" >
+				<column name="DisplayPriceID" />
+			</index>
+			<fk name="fk_selectedcar_carmake" to_schema="Car Dealer" to_table="CarMake" >
+				<fk_column name="MakeID" pk="MakeID" />
+			</fk>
+			<fk name="fk_selectedcar_vin#" to_schema="Car Dealer" to_table="VIN#" >
+				<fk_column name="VinID" pk="VinID" />
+			</fk>
+			<fk name="fk_selectedcar_color" to_schema="Car Dealer" to_table="Color" >
+				<fk_column name="ColorID" pk="ColorID" />
+			</fk>
+		</table>
+		<table name="Transmission" >
+			<column name="TransmissionID" type="int" jt="4" />
+			<column name="TransType" type="varchar" length="100" jt="12" />
+			<index name="Unq_Transmission_TransmissionID" unique="UNIQUE" >
+				<column name="TransmissionID" />
+			</index>
+		</table>
+		<table name="Type" >
+			<column name="TypeID" type="int" jt="4" />
+			<column name="TypeName" type="varchar" length="100" jt="12" />
+			<column name="TypeOptionId" type="int" jt="4" />
+			<column name="SalePriceID" type="int" jt="4" />
+			<column name="MileageID" type="decimal" jt="3" />
+			<index name="Idx_Type_TypeOptionId" unique="NORMAL" >
+				<column name="TypeOptionId" />
+			</index>
+			<index name="Unq_Type_TypeID" unique="UNIQUE" >
+				<column name="TypeID" />
+			</index>
+			<index name="Idx_Type_MileageID" unique="NORMAL" >
+				<column name="MileageID" />
+			</index>
+			<index name="Idx_Type_SalePriceID" unique="NORMAL" >
+				<column name="SalePriceID" />
+			</index>
+			<fk name="fk_type_typeoptions" to_schema="Car Dealer" to_table="TypeOptions" >
+				<fk_column name="TypeOptionId" pk="TypeOptionId" />
+			</fk>
+			<fk name="fk_type_mileage" to_schema="Car Dealer" to_table="Mileage" >
+				<fk_column name="MileageID" pk="MileageID" />
+			</fk>
+			<fk name="fk_type_saleprice" to_schema="Car Dealer" to_table="SalePrice" >
+				<fk_column name="SalePriceID" pk="SalePriceID" />
+			</fk>
+		</table>
+		<table name="TypeOptions" >
+			<column name="TypeOptionId" type="int" jt="4" />
+			<column name="Types" type="int" jt="4" />
+			<index name="Unq_TypeOptions_TypeOptionId" unique="UNIQUE" >
+				<column name="TypeOptionId" />
+			</index>
+		</table>
+		<table name="VIN#" >
+			<column name="VinID" type="int" length="30" jt="4" />
+			<column name="VIN" type="varchar" length="30" jt="12" />
+			<index name="Unq_VIN#_VinID" unique="UNIQUE" >
+				<column name="VinID" />
+			</index>
+		</table>
+		<table name="Year" >
+			<column name="YearID" type="int" jt="4" />
+			<column name="Year" type="decimal" jt="3" />
+			<index name="Unq_Year_YearID" unique="UNIQUE" >
+				<column name="YearID" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_156e0dc" show_relation="columns" >
+		<entity schema="Car Dealer" name="TypeOptions" color="1f5182" x="1065" y="270" />
+		<entity schema="Car Dealer" name="Picture" color="1f5182" x="1095" y="435" />
+		<entity schema="Car Dealer" name="ModelType" color="1f5182" x="810" y="435" />
+		<entity schema="Car Dealer" name="CarModel" color="1f5182" x="510" y="345" />
+		<entity schema="Car Dealer" name="Interior" color="1f5182" x="285" y="510" />
+		<entity schema="Car Dealer" name="Transmission" color="1f5182" x="135" y="480" />
+		<entity schema="Car Dealer" name="BodyStyle" color="1f5182" x="255" y="345" />
+		<entity schema="Car Dealer" name="BodyType" color="1f5182" x="45" y="345" />
+		<entity schema="Car Dealer" name="Mileage" color="1f5182" x="990" y="120" />
+		<entity schema="Car Dealer" name="Year" color="1f5182" x="630" y="225" />
+		<entity schema="Car Dealer" name="Description" color="1f5182" x="720" y="555" />
+		<entity schema="Car Dealer" name="MSRP" color="1f5182" x="465" y="600" />
+		<entity schema="Car Dealer" name="Type" color="1f5182" x="795" y="285" />
+		<entity schema="Car Dealer" name="SalePrice" color="1f5182" x="780" y="105" />
+		<entity schema="Car Dealer" name="ColorTypes" color="1f5182" x="180" y="150" />
+		<entity schema="Car Dealer" name="Color" color="1f5182" x="300" y="45" />
+		<entity schema="Car Dealer" name="CarMake" color="1f5182" x="420" y="195" />
+		<entity schema="Car Dealer" name="SelectedCar" color="1f5182" x="525" y="60" />
+		<entity schema="Car Dealer" name="VIN#" color="1f5182" x="900" y="45" />
+	</layout>
+</project>

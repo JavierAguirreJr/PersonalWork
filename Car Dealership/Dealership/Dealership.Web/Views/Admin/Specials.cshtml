@@ -1,0 +1,35 @@
+﻿@model List<Dealership.Models.Specials>
+@{
+    ViewBag.Title = "Specials";
+}
+
+<h1>Specials</h1>
+<hr />
+<div class="col-md-12">
+    <div class="row">
+        @Html.ActionLink("Add Special", "AddSpecial", null, new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Special</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var specials in Model)
+                {
+                    <tr>
+                        <td>@specials.SpecialName</td>
+                        <td>@specials.Details</td>
+                        <td>@Html.ActionLink("Delete", "DeleteSpecial", "Admin", null, new { @class = "btn btn-danger" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

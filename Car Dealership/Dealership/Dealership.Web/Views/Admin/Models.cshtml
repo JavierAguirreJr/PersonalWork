@@ -1,0 +1,36 @@
+﻿@model Dealership.Models.ViewModels.AddModelViewModel
+@{
+    ViewBag.Title = "Models";
+}
+
+<h1>Models</h1>
+<hr />
+<div class="col-md-12">
+    <div class="row">
+        @Html.ActionLink("Add Model", "AddModels", null, new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Date Added</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.ModelList)
+                {
+                    <tr>
+                        <td>@user.MakeName.Make</td>
+                        <td>@user.Model</td>
+                        <td>@user.DateAdded.ToShortDateString()</td>
+                        <td>@user.User.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model Dealership.Models.ViewModels.AddMakeViewModel
+@{
+    ViewBag.Title = "Makes";
+}
+
+<h1>Makes</h1>
+<hr />
+<div class="col-md-12">
+    <div class="row">
+        @Html.ActionLink("Add Make", "AddMake", null, new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Date Added</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.MakeList)
+                {
+                    <tr>
+                        <td>@user.Make</td>
+                        <td>@user.DateAdded.ToShortDateString()</td>
+                        <td>@user.User.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

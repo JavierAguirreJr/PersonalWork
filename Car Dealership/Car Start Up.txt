@@ -1,0 +1,10 @@
+1. models project = make all of your classes 
+(with the normal properties and the virtual properties on the classes)
+
+2. data project = make your interface with all the methods you think you will need
+
+3. make a repo for mock data and a repo for prod data and implement the interface
+
+4. make a factory to switch between the repos
+
+5. go back into your repos and do all the logic for the methods

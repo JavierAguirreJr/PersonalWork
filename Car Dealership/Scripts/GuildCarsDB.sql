@@ -1,0 +1,12 @@
+USE master
+GO
+
+IF EXISTS(SELECT * FROM SYS.DATABASES WHERE NAME = 'CarDealership')
+DROP DATABASE CarDealership
+GO
+
+CREATE DATABASE CarDealership
+GO
+
+USE CarDealership
+GO

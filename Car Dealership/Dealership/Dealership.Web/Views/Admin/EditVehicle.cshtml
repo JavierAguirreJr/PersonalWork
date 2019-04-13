@@ -1,0 +1,198 @@
+﻿@model Dealership.Models.ViewModels.EditVehicleViewModel
+@{
+    ViewBag.Title = "EditVehicle";
+}
+
+<div class="container">
+    <div>
+        @using (Html.BeginForm("EditVehicle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m=>m.Vehicle.VehicleId)
+            @Html.ValidationSummary()
+            <div class="col-md-12">
+                <div class="row">
+                    <h2>Edit Vehicle</h2><br />
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Make</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.ModelName.MakeName.MakeID, Model.MakeType, "-Choose One-", new { @class = "form-control", @id = "makeDropdown", @placeholder = "Car Make" })
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Model</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.ModelName.ModelID, Model.ModelType, "-Choose One-", new { @class = "form-control", @id = "modelDropdown", @placeholder = "Car Model" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Type</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.VehicleType.VehicleTypeId, Model.VehicleType, "-Choose One-", new { @class = "form-control", @placeholder = "Type" })
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Body Style</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.BodyName.BodyStyleId, Model.BodyType, "-Choose One-", new { @class = "form-control", @placeholder = "Body Style" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Year</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextBoxFor(m => m.Vehicle.Year, new { @class = "form-control", @placeholder = "Year" })
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Transmission</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.TransmissionType.TransmissionId, Model.TransmissionType, "-Choose One-", new { @class = "form-control", @placeholder = "Transmission" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Color</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.Color, Model.ColorOption, "-Choose One-", new { @class = "form-control", @placeholder = "Color" })
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Interior</label>
+                                    </p>
+                                    <p>
+                                        @Html.DropDownListFor(m => m.Vehicle.Interior, Model.InteriorType, "-Choose One-", new { @class = "form-control", @placeholder = "Interior" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Mileage</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextBoxFor(m => m.Vehicle.Mileage, new { @class = "form-control", @placeholder = "Mileage" })
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>VIN</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextBoxFor(m => m.Vehicle.VIN, new { @class = "form-control", @placeholder = "VIN" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>MSRP</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextBoxFor(m => m.Vehicle.MSRP, new { @class = "form-control", @placeholder = "MSRP" })
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Sale Price</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextBoxFor(m => m.Vehicle.SalePrice, new { @class = "form-control", @placeholder = "Sale Price" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Description</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextAreaFor(m => m.Vehicle.Description, new { @class = "form-control", @placeholder = "Description" })
+                                    </p><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Image</label>
+                                    </p>
+                                    <p>
+                                        @Html.TextBoxFor(m => m.VehicleImage, new { type ="file", @class ="form-control"})
+                                        @*<input id="Image" name="ImageUpload" type="file" />*@
+                                    </p><br />
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-horizontal">
+                                    <p>
+                                        <label>Feature Vehicle:</label>
+                                        @Html.CheckBoxFor(m=>m.Vehicle.IsFeatured)
+                                    </p>
+                                    <p>
+                                        <button class="btn btn-primary" id="SaveEditVehicle">Save</button>
+                                        @Html.ActionLink("Delete", "DeleteVehicle", "Admin", new { id = Model.Vehicle.VehicleId }, new { @class = "btn btn-danger" })
+                                    </p>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/AdminCarSearch.js"></script>

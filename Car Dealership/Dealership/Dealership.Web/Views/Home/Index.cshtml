@@ -1,0 +1,77 @@
+﻿@model List<Dealership.Models.VehicleDetails>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="dealername">
+    <h1>Buckets For Your Tuckus!!!</h1>
+    <h4>New And Used Car Dealership</h4>
+</div>
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active" href="#">
+            <img src="~/images/Specials/Special1.jpg" alt="Weekend Warrior Special">
+            <div class="carousel-caption">
+                <a class="btn btn-large btn-danger" href="@Url.Action("Specials", "Home")">Check out our specials</a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/Specials/Special2.jpg" alt="Big Baller$ Club">
+            <div class="carousel-caption">
+                <a class="btn btn-large btn-danger" href="@Url.Action("Specials", "Home")">Check out our specials</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<div class="container">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="col-md-12">
+            <div class="col-md-offset-4"><h2>Featured Vehicles</h2></div>
+            <div class="panel-group  panel-primary">
+                <div class="panel-body">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <div class="col-sm-4">
+                            <center>
+                                @Html.HiddenFor(m => m[i].VehicleId)
+                                <img src="@Model[i].ImageUrl" , height="190" ; width="240" />
+                                <br/>
+                                @Model[i].Year
+                                @Model[i].ModelName.MakeName.Make
+                                @Model[i].ModelName.Model
+                                <br />
+                                MSRP $@Model[i].MSRP
+                                <br />
+                                Sale Price $@Model[i].SalePrice
+                            </center>
+                            <br />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

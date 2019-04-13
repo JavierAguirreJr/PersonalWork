@@ -1,0 +1,80 @@
+﻿@model Dealership.Models.ViewModels.UserRoleViewModel
+@{
+    ViewBag.Title = "EditUser";
+}
+
+@using (Html.BeginForm("EditUser", "Admin", FormMethod.Post))
+{
+    @*@Html.HiddenFor(h=>h.AppUser.Roles.Single().RoleId)*@
+    @Html.HiddenFor(i=>i.AppUser.Id)
+    @Html.ValidationSummary()
+    <div class="col-md-12">
+        <br />
+        <h2>Edit User</h2>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <p>
+                        <label>First Name</label>
+                        @Html.TextBoxFor(n => n.AppUser.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <p>
+                        <label>Last Name</label>
+                        @Html.TextBoxFor(n => n.AppUser.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <p>
+                        <label>Email</label>
+                        @Html.TextBoxFor(n => n.AppUser.Email, new { @class = "form-control", placeholder = "Email" })
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <p>
+                        <label>Role</label>
+                        @Html.DropDownListFor(n => n.RoleId, Model.RolesList, "Select-Role", new { @class = "form-control" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <p>
+                        <label>Password</label>
+                        @Html.TextBoxFor(n => n.Password, new { @class = "form-control", placeholder = "Password" })
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <p>
+                        <label>Confirm Password</label>
+                        @Html.TextBoxFor(n => n.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" id="userSave">Save</button>
+            </div>
+        </div>
+    </div>
+
+}
+

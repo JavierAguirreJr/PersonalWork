@@ -1,0 +1,49 @@
+﻿@model Dealership.Models.ContactUs
+@{
+    ViewBag.Title = "ContactUs";
+}
+
+<h2>ContactUs</h2>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4">
+            <br />
+            <label>Name:</label>
+            <br/>
+            <input type="text" id="contactname" placeholder="Name" />
+            <br />
+            <br />
+            <label>Email:</label>
+            <br />
+            <input type="text" id="contactemail" placeholder="Email" />
+            <br />
+            <br />
+            <label>Phone:</label>
+            <br />
+            <input type="text" id="contactphone" placeholder="Phone" />
+            <br />
+            <br />
+            <label>Message:</label>
+            <br />
+            <textarea rows="10" cols="30"></textarea>
+            <br />
+            <br />
+            <button class="btn btn-primary" id="contactsubmit">Submit</button>
+        </div>
+        <div class="col-md-offset-6">
+            <center>
+                <label>Our Location</label>
+                <br />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d705.5657234919876!2d-93.27237017075919!3d44.978970347345935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b332907d76198f%3A0x47305550cfd48180!2sThe+Software+Guild!5e0!3m2!1sen!2sus!4v1512168368855"
+                        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <br />
+                <p>123 address location</p>
+                <p>city, state zipcode</p>
+                <br />
+                <p>Sales: 123-456-7890</p>
+                <p>Service: 098-7654-321</p>
+            </center>
+        </div>
+    </div>
+</div>

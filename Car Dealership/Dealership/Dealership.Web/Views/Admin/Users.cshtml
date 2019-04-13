@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Dealership.Models.AppUser>
+@{
+    ViewBag.Title = "Users";
+}
+<div class="col-md-12">
+    <div class="row">
+        <h1>Users</h1>
+    </div>
+    <div class="row">
+        @Html.ActionLink("Add A New User", "AddUser", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<hr />
+    <div class="col-md-12">
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Email Address</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.LastName</td>
+                            <td>@user.FirstName</td>
+                            <td>@user.Email</td>
+                            <td>@user.Id</td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditUser", "Admin", new { id = user.Roles.Single().UserId }, null)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+</div>

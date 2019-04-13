@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Sales";
+}
+
+<h2>Sales</h2>
+
+<div class="col-md-12" id="searchoptions">
+    <div class="col-md-4">
+        <label>Quick Search:</label>
+        <input type="text" id="searchbar" name="Search" placeholder="Enter make, model or year" />
+    </div>
+    <div class="col-md-4">
+        <label>Price:</label>
+        <select id="minpricevalue">
+            <option value="0">No Min</option>
+            <option value="1000">1000</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="25000">25000</option>
+        </select>
+        <select id="maxpricevalue">
+            <option value="2000000">No Max</option>
+            <option value="1000">1000</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="25000">25000</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label>Year:</label>
+        <select id="minyearvalue">
+            <option value="0">No Min</option>
+            <option value="1990">1990</option>
+            <option value="1995">1995</option>
+            <option value="2000">2000</option>
+            <option value="2005">2005</option>
+            <option value="2010">2010</option>
+            <option value="2015">2015</option>
+        </select>
+        <select id="maxyearvalue">
+            <option value="2018">No Max</option>
+            <option value="1995">1995</option>
+            <option value="2000">2000</option>
+            <option value="2005">2005</option>
+            <option value="2010">2010</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+        </select>
+    </div>
+</div>
+
+<br />
+<p></p>
+
+<div class="col-md-12">
+    <div class="col-md-offset-5">
+        <button class="btn btn-primary" id="adminsearch">Search</button>
+    </div>
+</div>
+
+<div id="results">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Search Results</h2>
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div id="cardetails">
+    <div class="col-md-12">
+        <h2>Details</h2>
+        <hr />
+    </div>
+</div>
+
+<div id="customerform">
+    <div class="col-md-12">
+        <h2>Sales Information</h2>
+    </div>
+</div>
+
+<script src="~/Scripts/SalesCarSearch.js"></script>

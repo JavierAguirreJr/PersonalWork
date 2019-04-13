@@ -1,0 +1,20 @@
+﻿    @model Dealership.Models.VehicleDetails
+@{
+    ViewBag.Title = "DeleteVehicle";
+}
+
+<h1>Delete Vehicle</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("DeleteVehicle", "Admin", FormMethod.Post))
+        {
+            @Html.HiddenFor(v => v.VehicleId)
+            @Html.HiddenFor(v=>v.ModelName.ModelID)
+            @Html.HiddenFor(v=>v.ModelName.MakeName.MakeID)
+            <p>Are you sure that you wish to delete: <strong>@Html.DisplayFor(v=>v.Year) @Html.DisplayFor(v => v.ModelName.MakeName.Make) @Html.DisplayFor(v => v.ModelName.Model)</strong>?</p>
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            @Html.ActionLink("Cancel", "EditVehicle", "Admin", new { id = Model.VehicleId }, new { @class = "btn btn-sm btn-info" })
+        }
+    </div>
+</div>

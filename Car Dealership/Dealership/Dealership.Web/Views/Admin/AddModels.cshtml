@@ -1,0 +1,21 @@
+﻿@model List<Dealership.Models.CarMake>
+@{
+    ViewBag.Title = "AddModels";
+}
+@using System.Linq
+
+<h2>Add Model</h2>
+@using (Html.BeginForm())
+{
+    <div class="col-md-12">
+        <div class="row">
+            @Html.DropDownList("MakeId", Model.Select(m => new SelectListItem() { Value = m.MakeID.ToString(), Text = m.Make }), new { @class = "form-control" })
+            <br/>
+            @Html.TextBox("ModelName",null, new { @style = "form-control", placeholder = "Model Name" })
+        </div>
+        <br />
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+}

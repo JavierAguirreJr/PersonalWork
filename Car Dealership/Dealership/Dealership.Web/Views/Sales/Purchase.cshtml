@@ -1,0 +1,59 @@
+﻿@model Dealership.Models.ViewModels.PurchaseViewModel
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<div id="details" style="display:block;">
+</div>
+@using (Html.BeginForm("Purchase", "Sales", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="form-group" id="purchaseForm">
+        <div class="row">
+            <div class="col-md-4">
+                @Html.HiddenFor(m => m.VehiclePurchaseId)
+
+                <label>First Name</label>
+                @Html.TextBoxFor(m => m.SaleDetails.Name, new { @class = "form-control" })
+
+                <label>Email</label>
+                @Html.TextBoxFor(m => m.SaleDetails.Email, new { @class = "form-control" })
+
+                <label>Street1</label>
+                @Html.TextBoxFor(m => m.SaleDetails.Address, new { @class = "form-control" })
+
+                <label>City</label>
+                @Html.TextBoxFor(m => m.SaleDetails.City, new { @class = "form-control" })
+
+                <label>Zip Code</label>
+                @Html.TextBoxFor(m => m.SaleDetails.Zipcode, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-8">
+
+                <label>Phone</label>
+                @Html.TextBoxFor(m => m.SaleDetails.Phone, new { @class = "form-control" })
+                <br />
+                <br />
+                <label>State</label>
+                @Html.TextBoxFor(m => m.SaleDetails.State, new { @class = "form-control" })
+
+            </div>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Purchase Price</label>
+                @Html.TextBoxFor(m => m.SaleDetails.PriceSold, new { @class = "form-control", placeholder = "Enter purchase price" })
+            </div>
+            <div class="col-md-8">
+                <label>Purchase Type</label>
+                @Html.DropDownListFor(m => m.PurchaseTypeDetails.PurchaseTypeId, Model.PurchaseTypes, "-Choose purchase type-", new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}
+
+<script src="~/Scripts/SalesInformation.js"></script>
